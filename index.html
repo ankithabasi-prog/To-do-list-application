@@ -4,49 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Todo List</title>
-
-    <!-- CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
+    <div class="app-container">
 
-        <h1>📝 My Todo List</h1>
+        <header class="header">
+            <div class="logo">✓</div>
+            <div>
+                <h1>📝 My Todo List</h1>
+                <p>Organize your daily tasks and achieve your goals.</p>
+            </div>
+        </header>
 
-        <div class="input-box">
-            <input
-                type="text"
-                id="taskInput"
-                placeholder="Add your task..."
-            >
-            <button class="add-btn" onclick="addTask()">Add</button>
-        </div>
+        <!-- Statistics -->
 
-        <div class="filters">
-            <button class="filter-btn active"
-                onclick="filterTasks('all', this)">All</button>
+        <section class="stats">
 
-            <button class="filter-btn"
-                onclick="filterTasks('pending', this)">Pending</button>
+            <div class="stat-card">
+                <span class="stat-icon">📋</span>
+                <div>
+                    <h2 id="totalCount">0</h2>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
 
-            <button class="filter-btn"
-                onclick="filterTasks('completed', this)">Completed</button>
-        </div>
+            <div class="stat-card">
+                <span class="stat-icon">⏳</span>
+                <div>
+                    <h2 id="pendingCount">0</h2>
+                    <p>Pending</p>
+                </div>
+            </div>
 
-        <ul id="taskList"></ul>
+            <div class="stat-card">
+                <span class="stat-icon">✅</span>
+                <div>
+                    <h2 id="completedCount">0</h2>
+                    <p>Completed</p>
+                </div>
+            </div>
 
-        <div class="task-info">
-            <span id="taskCount">0 tasks</span>
+        </section>
 
-            <button class="clear-btn" onclick="clearCompleted()">
-                Clear Completed
-            </button>
-        </div>
+        <!-- Todo Card -->
+
+        <main class="todo-card">
+
+            <div class="card-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Manage your daily activities</p>
+                </div>
+                <span class="task-icon">📝</span>
+            </div>
+
+            <!-- Add Task -->
+
+            <div class="input-box">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What needs to be done?"
+                >
+
+                <button id="addBtn">+ Add Task</button>
+            </div>
+
+            <!-- Filters -->
+
+            <div class="filter-section">
+
+                <button class="filter-btn active" data-filter="all">
+                    All Tasks
+                </button>
+
+                <button class="filter-btn" data-filter="pending">
+                    Pending
+                </button>
+
+                <button class="filter-btn" data-filter="completed">
+                    Completed
+                </button>
+
+            </div>
+
+            <!-- Task List -->
+
+            <div class="list-heading">
+                <h3>Task List</h3>
+
+                <button id="clearBtn">
+                    Clear Completed
+                </button>
+            </div>
+
+            <ul id="taskList"></ul>
+
+            <div id="emptyMessage" class="empty-message">
+                <div>🎯</div>
+                <h3>No tasks found!</h3>
+                <p>Add a new task to get started.</p>
+            </div>
+
+            <!-- Footer -->
+
+            <div class="footer">
+                <span id="taskCount">0 tasks</span>
+                <span>Stay focused. Stay productive!</span>
+            </div>
+
+        </main>
 
     </div>
 
-    <!-- JavaScript File -->
     <script src="script.js"></script>
 
 </body>
